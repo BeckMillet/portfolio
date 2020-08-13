@@ -1,32 +1,36 @@
-main p, footer{
-    padding: 1rem;
+/*STRUCTURE*/
+main {
+    display: flex;
 }
 body{
-    background-image: url("../imgs/background.gif");
+    background-image: url("../imgs/background.jpeg");
     background-size: cover;
     background-position-x: right;
     background-position-y: top;
     background-repeat: no-repeat;
-    background-color: rgb(55, 16, 117);
+    background-color: #50583c;
 }
-body .bg-dark {
-    background-color: rgba(25,25,25,0.5) !important;
-}
-body main {
-    display: flex;
-}
-body .sidebar {
-    display: inline-block;
-    margin-left: -145px;
-    padding: 0 15px;
-    transition: margin-left 0.5s ease-in-out;
-}
-body.sidebar-open .sidebar {
-    margin-left: 0;
+footer p {
+    font-size: 80%;
 }
 
-body.sidebar-open .content {
-    display: inline-block;
+/*JUMBOTRONS*/
+.jumbotron {
+    background-color: rgba(25,25,25,0.5) !important;
+}
+footer.jumbotron{
+    margin-bottom: 0px !important;
+}
+
+/*SIDEBAR*/
+.sidebar-open .sidebar {
+    margin-left: 15px;
+    height: 100vh;
+}
+.sidebar {
+    margin-left: -145px;
+    transition: margin-left 0.5s ease-in-out;
+    height: 100vh;
 }
 .sidebar a {
     border: 1px solid black;
@@ -34,23 +38,22 @@ body.sidebar-open .content {
     height: 32px;
     display: flex;
     align-content: center;
-    width: 120px;
     padding: 0 16px;
     margin: 10px 0;
     background: rgba(255, 255, 255, .3);
     color: white;
     line-height: 30px;
-}
-body .sidebar a {
     display: block;
     width: 130px;
 }
-footer p{
-    font-size: 80%;
+.sidebar a:hover, 
+.sidebar a.selected {
+    text-decoration: none;
+    background: rgba(255, 255, 255, 1);
+    color: black;
 }
-.card img{
-    width: 100%;
-}
+
+/*SIDEBAR BUTTON*/
 .sidebar-toggle {
     position: absolute;
     top: 20px;
@@ -61,22 +64,24 @@ footer p{
     width: 40px;
     height: 40px;
 }
-.sidebar-toggle:focus {
-    outline: none;
-}
 .sidebar-toggle img {
     width: 24px;
     height: 24px;
     transform: rotate(90deg);
 }
-body.sidebar-open .sidebar-toggle img {
+.sidebar-toggle:focus {
+    outline: none;
+}
+.sidebar-open .sidebar-toggle img {
     transform: rotate(0deg);
 }
-.sidebar a:hover, 
-.sidebar a.selected {
-    text-decoration: none;
-    background: rgba(255, 255, 255, 1);
-    color: black;
+
+/*CARDS*/
+.card img{
+    width: 100%;
+}
+.card-title a {
+    color:black;
 }
 p.card-text{
     padding: 0%;
@@ -84,9 +89,8 @@ p.card-text{
     margin-right: 0%;
     text-align: left;
 }
-h2.card-title{
-    text-align: center;
-}
+
+/*LINKEDIN*/
 .linky {
     color: yellow;
 }
@@ -94,15 +98,34 @@ h2.card-title{
     color: white;
 }
 
+.information{
+    background-color: white;
+}
+
+/*RESPONSIVE*/
 @media screen and (max-width: 580px) {
     .jumbotron h1 {
-        font-size: 25px;
+        font-size: 30px;
         padding-top: 40px;
+        padding-left: 15px;
     }
     p.lead {
         font-size: 15px;
+        padding-left: 15px;
     }
-    p.info{
-        font-size: 13px;
+    .sidebar {
+        padding-right: 15px;
+    }
+    .sidebar-open .sidebar {
+        padding-right: 0px;
+    }
+    .card-title a {
+        font-size: 25px;
     }
 }
+@media screen and (max-width: 1315px) {
+    .information {
+        margin-left: 15px !important;
+        margin-right: 15px !important;
+    }
+}   
